@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA374FBB1F82E43700D2E0F6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA374FBA1F82E43700D2E0F6 /* DetailViewController.swift */; };
 		AAD5F1521F6C7F8600A7EFAC /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5F1511F6C7F8600A7EFAC /* ItemStore.swift */; };
 		AAD5F1541F7E968800A7EFAC /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5F1531F7E968800A7EFAC /* ItemCell.swift */; };
 		AADF62D51F6C787C00C98A29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADF62D41F6C787C00C98A29 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA374FBA1F82E43700D2E0F6 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AAD5F1511F6C7F8600A7EFAC /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		AAD5F1531F7E968800A7EFAC /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCell.swift; path = ../ItemCell.swift; sourceTree = "<group>"; };
 		AADF62D11F6C787C00C98A29 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				AADF62D41F6C787C00C98A29 /* AppDelegate.swift */,
+				AA374FBA1F82E43700D2E0F6 /* DetailViewController.swift */,
 				AADF62E61F6C7BA600C98A29 /* ItemsViewController.swift */,
 				AADF62E81F6C7C5D00C98A29 /* item.swift */,
 				AAD5F1511F6C7F8600A7EFAC /* ItemStore.swift */,
@@ -148,6 +151,7 @@
 				AADF62E91F6C7C5D00C98A29 /* item.swift in Sources */,
 				AADF62E71F6C7BA600C98A29 /* ItemsViewController.swift in Sources */,
 				AAD5F1521F6C7F8600A7EFAC /* ItemStore.swift in Sources */,
+				AA374FBB1F82E43700D2E0F6 /* DetailViewController.swift in Sources */,
 				AADF62D51F6C787C00C98A29 /* AppDelegate.swift in Sources */,
 				AAD5F1541F7E968800A7EFAC /* ItemCell.swift in Sources */,
 			);
