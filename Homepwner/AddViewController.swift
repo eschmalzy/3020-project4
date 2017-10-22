@@ -1,43 +1,61 @@
 //
-//  DetailViewController.swift
-//  Homepwner
+//  AddViewController.swift
+//  Notey
 //
-//  Created by Ethan Schmalz on 10/2/17.
+//  Created by Ethan Schmalz on 10/18/17.
 //  Copyright © 2017 Ethan Schmalz. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController, UITextFieldDelegate{
+class AddViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet var nameField: UITextField!
     @IBOutlet var detailField: UITextView!
-    
     @IBOutlet weak var drawView: DrawableView!
+    @IBOutlet weak var typeDraw: UISegmentedControl!
+    
+    @IBAction func toggleControl(_ sender: Any) {
+        switch typeDraw.selectedSegmentIndex{
+        case 0:
+            detailField.isHidden = false
+            drawView.isHidden = true
+        case 1:
+            detailField.isHidden = true
+            drawView.isHidden = false
+        default:
+            break
+        }
+    }
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    var item: Item!
-    var row: Int = 0
     
-    @IBAction func cancelNoteViewController(_ segue: UIStoryboardSegue) {
-        self.performSegue(withIdentifier: "cancelNoteViewController", sender: self)
+    var item: Item!
+
+    @IBAction func cancelAddViewController(_ segue: UIStoryboardSegue) {
+        self.performSegue(withIdentifier: "cancelAddViewController", sender: self)
         self.dismiss(animated: true, completion: nil)
     }
     
-//    @IBAction func saveNote(_ sender: UIBarButtonItem) {
-//        self.performSegue(withIdentifier: "saveChanges", sender: self)
-//        self.dismiss(animated: true, completion: nil)
-//    }
+    
+    @IBAction func saveNote(_ sender: Any) {
+        self.performSegue(withIdentifier: "saveNote", sender: self)
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        drawView.isHidden = true
+        drawView.isUserInteractionEnabled = true
+        typeDraw.tintColor = UIColor(red: 1.00, green: 0.2, blue: 0.18, alpha: 1.0)
     }
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,22 +63,21 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         nameField.text = item.name
         detailField.text = item.details
         if item.drawing{
-            detailField.isHidden = true
-            loadDrawing()
-        }else{
-            drawView.isHidden = true
+            typeDraw.selectedSegmentIndex = 1
         }
-        
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        view.endEditing(true)
         item.name = nameField.text ?? ""
-        item.details = detailField.text ?? ""
-        if item.drawing{
+        item.details = detailField.text
+        if typeDraw.selectedSegmentIndex == 1 {
+            item.drawing = true
             saveDrawing()
+            item.details = "Picture"
         }
         
     }
@@ -73,11 +90,4 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         userDefaults.synchronize()
     }
     
-    func loadDrawing(){
-        if let data = UserDefaults.standard.data(forKey: item.uuid),let image = UIImage(data: data){
-            let drawingView = UIImageView.init(image: image)
-            drawView.addSubview(drawingView)
-            
-        }
-    }
 }

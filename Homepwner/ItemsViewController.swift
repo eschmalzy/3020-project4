@@ -12,19 +12,23 @@ class ItemsViewController: UITableViewController {
 
     var itemStore: ItemStore!
     
+    
     @IBAction func addNewItem(_ sender: UIBarButtonItem){
-        let newItem = itemStore.createItem()
-        
-        if let index = itemStore.allItems.index(of: newItem) {
-            let indexPath = IndexPath(row: index, section: 0)
-            tableView.insertRows(at: [indexPath], with: .automatic)
-        }
+        performSegue(withIdentifier: "addItem", sender: sender)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if itemStore.allItems.count > 0{
+            let item = itemStore.allItems[itemStore.allItems.count - 1]
+            if (item.name == "" && item.details == ""){
+                itemStore.removeItem(item)
+            }
+        }
+        
         tableView.reloadData()
+        
     }
     
     override func viewDidLoad() {
@@ -33,27 +37,66 @@ class ItemsViewController: UITableViewController {
     
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1.00, green: 0.23, blue: 0.19, alpha: 1.00)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        let titleText = [NSForegroundColorAttributeName:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = titleText
     }
     
-
+    
+    @IBAction func cancelNoteViewController(_ segue: UIStoryboardSegue){
+        
+    }
+    
+    @IBAction func cancelAddViewController(_ segue: UIStoryboardSegue){
+        let item = itemStore.allItems[itemStore.allItems.count - 1]
+        itemStore.removeItem(item)
+    }
+    
+    @IBAction func saveNote(_ segue: UIStoryboardSegue){
+        guard let itemDetailsViewController = segue.source as? DetailViewController,
+            let item = itemDetailsViewController.item else {
+                return
+        }
+        let row = itemDetailsViewController.row
+        print("row ", row ,item.name, item.details)
+        itemStore.allItems[row].name = item.name
+        itemStore.allItems[row].details = item.details
+        
+    }
+    
+    @IBAction func saveChanges (_ segue: UIStoryboardSegue){
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        if itemStore == nil {
+            return 0
+        } else{
+            return itemStore.allItems.count
+        }
+        
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
 
+        
+        if (indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor =  UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 0.20)
+            cell.detailLabel.backgroundColor = UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 0.01)
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
         // Configure the cell...
         let item = itemStore.allItems[indexPath.row]
 
         cell.nameLabel.text = item.name
-        cell.serialNumberLabel.text = item.serialNumber
-        cell.valueLabel.text = "$\(item.valueInDollars)"
+        cell.detailLabel.text = item.details
         return cell
     }
  
@@ -93,10 +136,16 @@ class ItemsViewController: UITableViewController {
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
+                detailViewController.row = row
             }
+        case "addItem"?:
+            let item = itemStore.createItem()
+            let addViewController = segue.destination as! AddViewController
+            addViewController.item = item
         default:
             preconditionFailure("Unexpected segue identifier.")
         }
     }
+
     
 }

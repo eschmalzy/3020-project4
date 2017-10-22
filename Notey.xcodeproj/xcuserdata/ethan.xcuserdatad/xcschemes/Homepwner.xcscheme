@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AADF62D01F6C787C00C98A29"
-               BuildableName = "Homepwner.app"
-               BlueprintName = "Homepwner"
-               ReferencedContainer = "container:Homepwner.xcodeproj">
+               BuildableName = "Notey.app"
+               BlueprintName = "Notey"
+               ReferencedContainer = "container:Notey.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AADF62D01F6C787C00C98A29"
-            BuildableName = "Homepwner.app"
-            BlueprintName = "Homepwner"
-            ReferencedContainer = "container:Homepwner.xcodeproj">
+            BuildableName = "Notey.app"
+            BlueprintName = "Notey"
+            ReferencedContainer = "container:Notey.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AADF62D01F6C787C00C98A29"
-            BuildableName = "Homepwner.app"
-            BlueprintName = "Homepwner"
-            ReferencedContainer = "container:Homepwner.xcodeproj">
+            BuildableName = "Notey.app"
+            BlueprintName = "Notey"
+            ReferencedContainer = "container:Notey.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AADF62D01F6C787C00C98A29"
-            BuildableName = "Homepwner.app"
-            BlueprintName = "Homepwner"
-            ReferencedContainer = "container:Homepwner.xcodeproj">
+            BuildableName = "Notey.app"
+            BlueprintName = "Notey"
+            ReferencedContainer = "container:Notey.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
