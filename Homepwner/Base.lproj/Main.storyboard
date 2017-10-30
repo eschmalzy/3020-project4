@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,38 +14,53 @@
         <scene sceneID="D3h-vF-jcW">
             <objects>
                 <tableViewController id="Xa9-GS-i8Y" customClass="ItemsViewController" customModule="Notey" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="x8F-7u-UPy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="x8F-7u-UPy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="5ht-Ks-WRP" detailTextLabel="uHF-De-USa" rowHeight="65" style="IBUITableViewCellStyleSubtitle" id="5lQ-ly-1ib" customClass="ItemCell" customModule="Notey" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="84" id="5lQ-ly-1ib" customClass="ItemCell" customModule="Notey" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5lQ-ly-1ib" id="oa0-nM-HoU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5ht-Ks-WRP">
-                                            <rect key="frame" x="15" y="15" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kms-Ky-fhd">
+                                            <rect key="frame" x="314" y="3" width="53" height="75"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukU-ex-WPS">
+                                            <rect key="frame" x="8" y="8" width="84" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uHF-De-USa">
-                                            <rect key="frame" x="15" y="35.5" width="33" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detailLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-Ln-CcL">
+                                            <rect key="frame" x="8" y="45" width="84" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kms-Ky-fhd" secondAttribute="bottom" constant="-3" id="3YE-Qd-vPg"/>
+                                        <constraint firstItem="kms-Ky-fhd" firstAttribute="top" secondItem="oa0-nM-HoU" secondAttribute="top" constant="3" id="9nZ-QQ-b2r"/>
+                                        <constraint firstItem="kms-Ky-fhd" firstAttribute="leading" secondItem="oa0-nM-HoU" secondAttribute="leadingMargin" constant="283" id="NbF-Dl-vHG"/>
+                                        <constraint firstAttribute="trailing" secondItem="kms-Ky-fhd" secondAttribute="trailing" constant="8" id="QRK-Bm-VLm"/>
+                                        <constraint firstItem="pSa-Ln-CcL" firstAttribute="leading" secondItem="ukU-ex-WPS" secondAttribute="leading" id="d7d-xc-DNV"/>
+                                        <constraint firstItem="ukU-ex-WPS" firstAttribute="leading" secondItem="oa0-nM-HoU" secondAttribute="leadingMargin" id="gO5-Xa-2Pg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kms-Ky-fhd" secondAttribute="trailing" id="kXX-WM-pma"/>
+                                        <constraint firstItem="pSa-Ln-CcL" firstAttribute="leading" secondItem="oa0-nM-HoU" secondAttribute="leadingMargin" id="kb7-Y4-Cbj"/>
+                                        <constraint firstItem="kms-Ky-fhd" firstAttribute="centerY" secondItem="oa0-nM-HoU" secondAttribute="centerY" id="p9T-zg-LFT"/>
+                                        <constraint firstItem="ukU-ex-WPS" firstAttribute="top" secondItem="oa0-nM-HoU" secondAttribute="topMargin" id="teK-XV-xBg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="pSa-Ln-CcL" secondAttribute="bottom" constant="9.5" id="uk8-eg-zAD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="detailLabel" destination="uHF-De-USa" id="rCd-BU-gNh"/>
-                                    <outlet property="nameLabel" destination="5ht-Ks-WRP" id="I0p-zu-9w4"/>
+                                    <outlet property="detailLabel" destination="pSa-Ln-CcL" id="H2N-va-Mhm"/>
+                                    <outlet property="drawnImage" destination="kms-Ky-fhd" id="qJ5-cx-y6T"/>
+                                    <outlet property="nameLabel" destination="ukU-ex-WPS" id="j2W-7P-VX6"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="showItem" id="Edu-B1-yOd"/>
                                 </connections>
                             </tableViewCell>
@@ -98,8 +114,11 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRU-Ga-m8k">
+                                        <rect key="frame" x="0.0" y="96" width="375" height="50"/>
+                                    </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byU-72-o2T">
-                                        <rect key="frame" x="0.0" y="96" width="375" height="507"/>
+                                        <rect key="frame" x="0.0" y="154" width="375" height="449"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -121,6 +140,7 @@
                         <outlet property="detailField" destination="byU-72-o2T" id="9KL-tj-xfg"/>
                         <outlet property="drawView" destination="KcR-CQ-hmC" id="ras-ck-FaK"/>
                         <outlet property="nameField" destination="GxB-zj-xzX" id="dRj-Ph-QvF"/>
+                        <outlet property="photoSaved" destination="KRU-Ga-m8k" id="RrM-2a-Njy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -192,13 +212,26 @@
                                             <outletCollection property="gestureRecognizers" destination="OqU-Po-gsB" appends="YES" id="LOP-5d-G1j"/>
                                         </connections>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmU-cw-F9l">
+                                        <rect key="frame" x="0.0" y="117" width="375" height="128"/>
+                                    </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dxe-Tx-bbM">
-                                        <rect key="frame" x="0.0" y="117" width="375" height="486"/>
+                                        <rect key="frame" x="0.0" y="248" width="375" height="308"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l08-Ba-dWY">
+                                        <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                                        <items>
+                                            <barButtonItem systemItem="camera" id="4wx-IO-vcX">
+                                                <connections>
+                                                    <action selector="takePicture:" destination="Dpz-vy-r77" id="FIl-qL-OnH"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -228,6 +261,7 @@
                         <outlet property="detailField" destination="dxe-Tx-bbM" id="P3a-hW-kAi"/>
                         <outlet property="drawView" destination="RdE-Cb-Qow" id="WJg-fq-Vg5"/>
                         <outlet property="nameField" destination="POj-tH-F7a" id="oRr-GH-biF"/>
+                        <outlet property="photoPicked" destination="AmU-cw-F9l" id="QZ4-4e-tvJ"/>
                         <outlet property="typeDraw" destination="cDK-7f-ktZ" id="dWY-Al-CIw"/>
                     </connections>
                 </viewController>

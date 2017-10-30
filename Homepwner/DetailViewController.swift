@@ -12,6 +12,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet var nameField: UITextField!
     @IBOutlet var detailField: UITextView!
     
+    @IBOutlet weak var photoSaved: UIImageView!
     @IBOutlet weak var drawView: DrawableView!
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -24,10 +25,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         self.dismiss(animated: true, completion: nil)
     }
     
-//    @IBAction func saveNote(_ sender: UIBarButtonItem) {
-//        self.performSegue(withIdentifier: "saveChanges", sender: self)
-//        self.dismiss(animated: true, completion: nil)
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +44,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         if item.drawing{
             detailField.isHidden = true
             loadDrawing()
-        }else{
+        }else if item.picture{
+            detailField.isHidden = true
             drawView.isHidden = true
+            photoSaved.isHidden = false
+            loadPicture()
         }
         
         
@@ -59,25 +59,22 @@ class DetailViewController: UIViewController, UITextFieldDelegate{
         
         item.name = nameField.text ?? ""
         item.details = detailField.text ?? ""
-        if item.drawing{
-            saveDrawing()
-        }
+        
         
     }
     
-    func saveDrawing(){
-        let img = drawView.createImage()
-        let data = UIImagePNGRepresentation(img)
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(data, forKey: item.uuid)
-        userDefaults.synchronize()
-    }
     
     func loadDrawing(){
         if let data = UserDefaults.standard.data(forKey: item.uuid),let image = UIImage(data: data){
             let drawingView = UIImageView.init(image: image)
             drawView.addSubview(drawingView)
-            
         }
     }
+    
+    func loadPicture(){
+        if let data = UserDefaults.standard.data(forKey: item.uuid),let image = UIImage(data: data){
+            photoSaved.image = image
+        }
+    }
+    
 }

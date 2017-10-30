@@ -8,20 +8,56 @@
 
 import UIKit
 
-class AddViewController: UIViewController, UITextFieldDelegate{
+class AddViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate{
+
     @IBOutlet var nameField: UITextField!
     @IBOutlet var detailField: UITextView!
     @IBOutlet weak var drawView: DrawableView!
     @IBOutlet weak var typeDraw: UISegmentedControl!
+    @IBOutlet weak var photoPicked: UIImageView!
+    
+    @IBAction func takePicture(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            imagePicker.sourceType = .camera
+        }else{
+            imagePicker.sourceType = .photoLibrary
+        }
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        // Get picked image from info dictionary
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        // Put that image on the screen in the image view
+        drawView.isHidden = true
+        detailField.isHidden = true
+        photoPicked.isHidden = false
+        photoPicked.image = image
+        item.picture = true
+        typeDraw.selectedSegmentIndex = 1
+        // Take image picker off the screen -
+        // you must call this dismiss method
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func toggleControl(_ sender: Any) {
         switch typeDraw.selectedSegmentIndex{
         case 0:
             detailField.isHidden = false
             drawView.isHidden = true
+            photoPicked.isHidden = true
         case 1:
-            detailField.isHidden = true
-            drawView.isHidden = false
+            if !item.picture{
+                detailField.isHidden = true
+                photoPicked.isHidden = true
+                drawView.isHidden = false
+            }else{
+                detailField.isHidden = true
+                photoPicked.isHidden = false
+                drawView.isHidden = true
+            }
         default:
             break
         }
@@ -46,6 +82,7 @@ class AddViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         drawView.isHidden = true
+        photoPicked.isHidden = true
         drawView.isUserInteractionEnabled = true
         typeDraw.tintColor = UIColor(red: 1.00, green: 0.2, blue: 0.18, alpha: 1.0)
     }
@@ -75,7 +112,6 @@ class AddViewController: UIViewController, UITextFieldDelegate{
         item.name = nameField.text ?? ""
         item.details = detailField.text
         if typeDraw.selectedSegmentIndex == 1 {
-            item.drawing = true
             saveDrawing()
             item.details = "Picture"
         }
@@ -83,11 +119,19 @@ class AddViewController: UIViewController, UITextFieldDelegate{
     }
     
     func saveDrawing(){
-        let img = drawView.createImage()
-        let data = UIImagePNGRepresentation(img)
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(data, forKey: item.uuid)
-        userDefaults.synchronize()
+        if !item.picture{
+            item.drawing = true
+            let img = drawView.createImage()
+            let data = UIImagePNGRepresentation(img)
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(data, forKey: item.uuid)
+            userDefaults.synchronize()
+        }else {
+            let data = UIImagePNGRepresentation(photoPicked.image!)
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(data, forKey: item.uuid)
+            userDefaults.synchronize()
+        }
     }
     
 }

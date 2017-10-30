@@ -12,6 +12,7 @@ class ItemCell: UITableViewCell{
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var drawnImage: UIImageView?
     
 
     

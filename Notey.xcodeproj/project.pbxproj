@@ -17,7 +17,6 @@
 		AA2FBB581F9D299B00AB1364 /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB491F9D299B00AB1364 /* item.swift */; };
 		AA2FBB591F9D299B00AB1364 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB4A1F9D299B00AB1364 /* ItemStore.swift */; };
 		AA2FBB5A1F9D299B00AB1364 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB4B1F9D299B00AB1364 /* ItemsViewController.swift */; };
-		AA2FBB5B1F9D299B00AB1364 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB4D1F9D299B00AB1364 /* ViewController.swift */; };
 		AA2FBB5D1F9D2C8D00AB1364 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB5C1F9D2C8D00AB1364 /* ItemCell.swift */; };
 		AA2FBB601F9D2DF600AB1364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2FBB5E1F9D2DF600AB1364 /* LaunchScreen.storyboard */; };
 		AA2FBB611F9D2DF600AB1364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2FBB5F1F9D2DF600AB1364 /* Main.storyboard */; };
@@ -35,7 +34,6 @@
 		AA2FBB4A1F9D299B00AB1364 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemStore.swift; path = Homepwner/ItemStore.swift; sourceTree = SOURCE_ROOT; };
 		AA2FBB4B1F9D299B00AB1364 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemsViewController.swift; path = Homepwner/ItemsViewController.swift; sourceTree = SOURCE_ROOT; };
 		AA2FBB4C1F9D299B00AB1364 /* Notey-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Notey-Bridging-Header.h"; path = "Homepwner/Notey-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		AA2FBB4D1F9D299B00AB1364 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Homepwner/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		AA2FBB5C1F9D2C8D00AB1364 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCell.swift; path = Homepwner/ItemCell.swift; sourceTree = SOURCE_ROOT; };
 		AA2FBB5E1F9D2DF600AB1364 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA2FBB5F1F9D2DF600AB1364 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,20 +70,19 @@
 		AADF62D31F6C787C00C98A29 /* Notey */ = {
 			isa = PBXGroup;
 			children = (
-				AA2FBB3E1F9D299B00AB1364 /* AddViewController.swift */,
+				AA2FBB411F9D299B00AB1364 /* Base.lproj */,
 				AA2FBB3F1F9D299B00AB1364 /* AppDelegate.swift */,
 				AA2FBB401F9D299B00AB1364 /* Assets.xcassets */,
 				AA2FBB5E1F9D2DF600AB1364 /* LaunchScreen.storyboard */,
 				AA2FBB5F1F9D2DF600AB1364 /* Main.storyboard */,
-				AA2FBB411F9D299B00AB1364 /* Base.lproj */,
 				AA2FBB451F9D299B00AB1364 /* DetailViewController.swift */,
+				AA2FBB3E1F9D299B00AB1364 /* AddViewController.swift */,
+				AA2FBB4B1F9D299B00AB1364 /* ItemsViewController.swift */,
 				AA2FBB461F9D299B00AB1364 /* DrawableView.swift */,
 				AA2FBB481F9D299B00AB1364 /* Info.plist */,
 				AA2FBB491F9D299B00AB1364 /* item.swift */,
 				AA2FBB4A1F9D299B00AB1364 /* ItemStore.swift */,
-				AA2FBB4B1F9D299B00AB1364 /* ItemsViewController.swift */,
 				AA2FBB4C1F9D299B00AB1364 /* Notey-Bridging-Header.h */,
-				AA2FBB4D1F9D299B00AB1364 /* ViewController.swift */,
 				AA2FBB5C1F9D2C8D00AB1364 /* ItemCell.swift */,
 			);
 			name = Notey;
@@ -168,7 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA2FBB551F9D299B00AB1364 /* DrawableView.swift in Sources */,
-				AA2FBB5B1F9D299B00AB1364 /* ViewController.swift in Sources */,
 				AA2FBB541F9D299B00AB1364 /* DetailViewController.swift in Sources */,
 				AA2FBB581F9D299B00AB1364 /* item.swift in Sources */,
 				AA2FBB591F9D299B00AB1364 /* ItemStore.swift in Sources */,

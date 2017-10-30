@@ -35,7 +35,8 @@ class ItemsViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
     
-        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 65
         tableView.estimatedRowHeight = 65
         navigationController?.navigationBar.barTintColor = UIColor(red: 1.00, green: 0.23, blue: 0.19, alpha: 1.00)
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -89,6 +90,8 @@ class ItemsViewController: UITableViewController {
         {
             cell.backgroundColor =  UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 0.20)
             cell.detailLabel.backgroundColor = UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 0.01)
+            cell.nameLabel.backgroundColor = UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 0.01)
+
         } else {
             cell.backgroundColor = UIColor.white
         }
@@ -97,6 +100,13 @@ class ItemsViewController: UITableViewController {
 
         cell.nameLabel.text = item.name
         cell.detailLabel.text = item.details
+        if let data = UserDefaults.standard.data(forKey: item.uuid),let image = UIImage(data: data){
+            print("image ", image)
+            cell.drawnImage?.image = image
+        } else{
+            print("no image")
+            cell.drawnImage?.isHidden = true
+        }
         return cell
     }
  
