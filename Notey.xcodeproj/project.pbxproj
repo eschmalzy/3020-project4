@@ -20,6 +20,7 @@
 		AA2FBB5D1F9D2C8D00AB1364 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB5C1F9D2C8D00AB1364 /* ItemCell.swift */; };
 		AA2FBB601F9D2DF600AB1364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2FBB5E1F9D2DF600AB1364 /* LaunchScreen.storyboard */; };
 		AA2FBB611F9D2DF600AB1364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2FBB5F1F9D2DF600AB1364 /* Main.storyboard */; };
+		AAFA66E01FCB672C00FEA3FF /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA66DF1FCB672C00FEA3FF /* DrawingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		AA2FBB5E1F9D2DF600AB1364 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA2FBB5F1F9D2DF600AB1364 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AADF62D11F6C787C00C98A29 /* Notey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAFA66DF1FCB672C00FEA3FF /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingView.swift; path = "../../../Downloads/Drawing-swift-master/Drawing-swift/DrawingView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				AA2FBB4A1F9D299B00AB1364 /* ItemStore.swift */,
 				AA2FBB4C1F9D299B00AB1364 /* Notey-Bridging-Header.h */,
 				AA2FBB5C1F9D2C8D00AB1364 /* ItemCell.swift */,
+				AAFA66DF1FCB672C00FEA3FF /* DrawingView.swift */,
 			);
 			name = Notey;
 			path = Homepwner;
@@ -170,6 +173,7 @@
 				AA2FBB591F9D299B00AB1364 /* ItemStore.swift in Sources */,
 				AA2FBB4E1F9D299B00AB1364 /* AddViewController.swift in Sources */,
 				AA2FBB5A1F9D299B00AB1364 /* ItemsViewController.swift in Sources */,
+				AAFA66E01FCB672C00FEA3FF /* DrawingView.swift in Sources */,
 				AA2FBB5D1F9D2C8D00AB1364 /* ItemCell.swift in Sources */,
 				AA2FBB4F1F9D299B00AB1364 /* AppDelegate.swift in Sources */,
 			);

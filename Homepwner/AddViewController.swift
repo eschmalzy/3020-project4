@@ -12,10 +12,14 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
 
     @IBOutlet var nameField: UITextField!
     @IBOutlet var detailField: UITextView!
-    @IBOutlet weak var drawView: DrawableView!
+    @IBOutlet weak var drawView: DrawingView!
     @IBOutlet weak var typeDraw: UISegmentedControl!
     @IBOutlet weak var photoPicked: UIImageView!
+    @IBOutlet weak var widthSlider: UISlider!
     
+    @IBAction func changeWidth(_ sender: Any) {
+        drawView.lineWidth = CGFloat(widthSlider.value)
+    }
     @IBAction func takePicture(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.camera){
@@ -53,6 +57,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
                 detailField.isHidden = true
                 photoPicked.isHidden = true
                 drawView.isHidden = false
+                widthSlider.isHidden = false
             }else{
                 detailField.isHidden = true
                 photoPicked.isHidden = false
@@ -82,6 +87,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     override func viewDidLoad() {
         super.viewDidLoad()
         drawView.isHidden = true
+        widthSlider.isHidden = true
         photoPicked.isHidden = true
         drawView.isUserInteractionEnabled = true
         typeDraw.tintColor = UIColor(red: 1.00, green: 0.2, blue: 0.18, alpha: 1.0)

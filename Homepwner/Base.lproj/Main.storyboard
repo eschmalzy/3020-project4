@@ -204,8 +204,14 @@
                                             <outlet property="delegate" destination="Dpz-vy-r77" id="xad-f6-5Bk"/>
                                         </connections>
                                     </textField>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-Cb-Qow" customClass="DrawableView" customModule="Notey" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bzv-R2-8Vt">
+                                        <rect key="frame" x="-2" y="64" width="379" height="31"/>
+                                        <connections>
+                                            <action selector="changeWidth:" destination="Dpz-vy-r77" eventType="valueChanged" id="UrE-YD-98Y"/>
+                                        </connections>
+                                    </slider>
+                                    <view multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-Cb-Qow" customClass="DrawingView" customModule="Notey" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="97" width="375" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -213,10 +219,10 @@
                                         </connections>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmU-cw-F9l">
-                                        <rect key="frame" x="0.0" y="117" width="375" height="128"/>
+                                        <rect key="frame" x="0.0" y="150" width="375" height="128"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dxe-Tx-bbM">
-                                        <rect key="frame" x="0.0" y="248" width="375" height="308"/>
+                                        <rect key="frame" x="0.0" y="281" width="375" height="275"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -263,6 +269,7 @@
                         <outlet property="nameField" destination="POj-tH-F7a" id="oRr-GH-biF"/>
                         <outlet property="photoPicked" destination="AmU-cw-F9l" id="QZ4-4e-tvJ"/>
                         <outlet property="typeDraw" destination="cDK-7f-ktZ" id="dWY-Al-CIw"/>
+                        <outlet property="widthSlider" destination="Bzv-R2-8Vt" id="k90-G3-Pw3"/>
                     </connections>
                 </viewController>
                 <exit id="y7l-Dl-P1b" userLabel="Exit" sceneMemberID="exit"/>
