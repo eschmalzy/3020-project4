@@ -135,12 +135,19 @@
                             <constraint firstItem="sAU-SE-pBF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ykc-cY-Pzq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Note" id="Quw-IP-aiK"/>
+                    <navigationItem key="navigationItem" title="Edit Note" id="Quw-IP-aiK">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="sdz-R1-GX4">
+                            <connections>
+                                <action selector="sendNote:" destination="BYZ-38-t0r" id="O80-Wn-hQg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailField" destination="byU-72-o2T" id="9KL-tj-xfg"/>
                         <outlet property="drawView" destination="KcR-CQ-hmC" id="ras-ck-FaK"/>
                         <outlet property="nameField" destination="GxB-zj-xzX" id="dRj-Ph-QvF"/>
                         <outlet property="photoSaved" destination="KRU-Ga-m8k" id="RrM-2a-Njy"/>
+                        <outlet property="sendButton" destination="sdz-R1-GX4" id="dek-rI-bx6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -186,7 +193,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cDK-7f-ktZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                                         <segments>
                                             <segment title="Type"/>
                                             <segment title="Draw"/>
@@ -196,7 +203,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POj-tH-F7a">
-                                        <rect key="frame" x="0.0" y="31" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="3" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -204,14 +211,109 @@
                                             <outlet property="delegate" destination="Dpz-vy-r77" id="xad-f6-5Bk"/>
                                         </connections>
                                     </textField>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bzv-R2-8Vt">
-                                        <rect key="frame" x="-2" y="64" width="379" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OIo-7X-bcP">
+                                        <rect key="frame" x="0.0" y="36" width="375" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ss8-25-Bmr">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="30"/>
+                                                <state key="normal" title="Color"/>
+                                                <connections>
+                                                    <action selector="pickColor:" destination="Dpz-vy-r77" eventType="touchUpInside" id="Hbl-an-MhU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olk-aT-bYD">
+                                                <rect key="frame" x="94" y="0.0" width="93.5" height="30"/>
+                                                <state key="normal" title="Brush Size"/>
+                                                <connections>
+                                                    <action selector="changeBrushSize:" destination="Dpz-vy-r77" eventType="touchUpInside" id="NPS-Su-40T"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGB-Zg-BsP">
+                                                <rect key="frame" x="187.5" y="0.0" width="94" height="30"/>
+                                                <state key="normal" title="Undo"/>
+                                                <connections>
+                                                    <action selector="undoPressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="qH5-wq-8YB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJY-ZV-qa0">
+                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="30"/>
+                                                <state key="normal" title="Redo"/>
+                                                <connections>
+                                                    <action selector="redoPressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="ayF-KF-pYl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="Bzv-R2-8Vt">
+                                        <rect key="frame" x="-2" y="69" width="379" height="1"/>
                                         <connections>
                                             <action selector="changeWidth:" destination="Dpz-vy-r77" eventType="valueChanged" id="UrE-YD-98Y"/>
                                         </connections>
                                     </slider>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eHw-dJ-l5O">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="168"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgs-el-xCN">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="18"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="blackPressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="Wad-Ha-7vt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvy-ak-qki">
+                                                <rect key="frame" x="0.0" y="18" width="375" height="30"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="redPressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="4w5-EH-Ffk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIi-ei-2B0">
+                                                <rect key="frame" x="0.0" y="48" width="375" height="30"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="greenPressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="9d6-xk-RWG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Tp-e7-Xuk">
+                                                <rect key="frame" x="0.0" y="78" width="375" height="30"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="bluePressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="olC-en-fDG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ge0-68-Ofd">
+                                                <rect key="frame" x="0.0" y="108" width="375" height="30"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="bluePressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="lyq-Qj-WPk"/>
+                                                    <action selector="orangePressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="Jee-zn-vVW"/>
+                                                    <action selector="yellowPressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="yTE-HQ-PL0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE2-lP-6Ro">
+                                                <rect key="frame" x="0.0" y="138" width="375" height="30"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="bluePressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="7Df-Yg-SRN"/>
+                                                    <action selector="orangePressed:" destination="Dpz-vy-r77" eventType="touchUpInside" id="r4n-t8-qh2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <view multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-Cb-Qow" customClass="DrawingView" customModule="Notey" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="97" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="243" width="375" height="179"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -219,10 +321,10 @@
                                         </connections>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmU-cw-F9l">
-                                        <rect key="frame" x="0.0" y="150" width="375" height="128"/>
+                                        <rect key="frame" x="0.0" y="425" width="375" height="128"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dxe-Tx-bbM">
-                                        <rect key="frame" x="0.0" y="281" width="375" height="275"/>
+                                        <rect key="frame" x="0.0" y="556" width="375" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -264,12 +366,24 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="blackButton" destination="Wgs-el-xCN" id="ukb-9G-DfU"/>
+                        <outlet property="blueButton" destination="6Tp-e7-Xuk" id="Pbg-0Q-1jy"/>
+                        <outlet property="brushOptions" destination="OIo-7X-bcP" id="NMX-cQ-VyD"/>
+                        <outlet property="brushSizeBurron" destination="olk-aT-bYD" id="3km-fF-mnp"/>
+                        <outlet property="colorButton" destination="Ss8-25-Bmr" id="boC-LR-lfH"/>
+                        <outlet property="colorStackView" destination="eHw-dJ-l5O" id="uia-GT-xvW"/>
                         <outlet property="detailField" destination="dxe-Tx-bbM" id="P3a-hW-kAi"/>
                         <outlet property="drawView" destination="RdE-Cb-Qow" id="WJg-fq-Vg5"/>
+                        <outlet property="greenButton" destination="aIi-ei-2B0" id="SKb-Ad-KFs"/>
                         <outlet property="nameField" destination="POj-tH-F7a" id="oRr-GH-biF"/>
+                        <outlet property="orangeButton" destination="BE2-lP-6Ro" id="cuM-Em-vgN"/>
                         <outlet property="photoPicked" destination="AmU-cw-F9l" id="QZ4-4e-tvJ"/>
+                        <outlet property="redButton" destination="Hvy-ak-qki" id="Szw-W5-Oic"/>
+                        <outlet property="redoButton" destination="cJY-ZV-qa0" id="gMV-XR-h9P"/>
                         <outlet property="typeDraw" destination="cDK-7f-ktZ" id="dWY-Al-CIw"/>
+                        <outlet property="undoButton" destination="sGB-Zg-BsP" id="UAW-Q8-EhW"/>
                         <outlet property="widthSlider" destination="Bzv-R2-8Vt" id="k90-G3-Pw3"/>
+                        <outlet property="yellowButton" destination="Ge0-68-Ofd" id="Icf-gk-JeQ"/>
                     </connections>
                 </viewController>
                 <exit id="y7l-Dl-P1b" userLabel="Exit" sceneMemberID="exit"/>

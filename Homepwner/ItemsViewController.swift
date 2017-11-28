@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsViewController: UITableViewController {
+class ItemsViewController: UITableViewController, UIGestureRecognizerDelegate {
 
     var itemStore: ItemStore!
     
@@ -42,8 +42,28 @@ class ItemsViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = UIColor.white
         let titleText = [NSForegroundColorAttributeName:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = titleText
+        
+//        let longPress = UILongPressGestureRecognizer(target: self, action: Selector(("handleLongPress")))
+//        longPress.minimumPressDuration = 0.5
+//        longPress.delaysTouchesBegan = true
+//        longPress.delegate = self
+//        self.tableView.addGestureRecognizer(longPress)
+        
     }
     
+    
+    func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer){
+        print("longpress")
+//        let touchPoint = gestureRecognizer.location(in: self.tableView)
+//        if let indexPath = tableView.indexPathForRow(at: touchPoint){
+//            let row = indexPath.row
+//            let menu = UIMenuController.shared
+//            let sendItem = UIMenuItem(title: "Send", action: Selector(("sendItem")))
+//            menu.menuItems = [sendItem]
+//            menu.isMenuVisible = true
+//            menu.setTargetRect(CGRect.zero, in: self.tableView)
+//        }
+    }
     
     @IBAction func cancelNoteViewController(_ segue: UIStoryboardSegue){
         

@@ -10,15 +10,62 @@ import UIKit
 
 class AddViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate{
 
+    
+    
+    @IBOutlet weak var redoButton: UIButton!
+    @IBOutlet weak var undoButton: UIButton!
+    @IBOutlet weak var colorStackView: UIStackView!
+    @IBOutlet weak var brushOptions: UIStackView!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var detailField: UITextView!
     @IBOutlet weak var drawView: DrawingView!
     @IBOutlet weak var typeDraw: UISegmentedControl!
     @IBOutlet weak var photoPicked: UIImageView!
     @IBOutlet weak var widthSlider: UISlider!
+    @IBOutlet weak var redButton: UIButton!
+    @IBOutlet weak var blackButton: UIButton!
+    @IBOutlet weak var colorButton: UIButton!
+    @IBOutlet weak var brushSizeBurron: UIButton!
+    
+    @IBOutlet weak var yellowButton: UIButton!
+    @IBOutlet weak var orangeButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var blueButton: UIButton!
+    
+    
+    var item: Item!
     
     @IBAction func changeWidth(_ sender: Any) {
         drawView.lineWidth = CGFloat(widthSlider.value)
+    }
+    
+    @IBAction func pickColor(_ sender: Any) {
+        if colorStackView.isHidden == false{
+            widthSlider.isHidden = true
+            UIView.animate(withDuration: 0.3){
+                self.colorStackView.isHidden = true
+            }
+            
+        } else {
+            widthSlider.isHidden = true
+            UIView.animate(withDuration: 0.3){
+                self.colorStackView.isHidden = false
+            }
+        }
+    }
+    
+    @IBAction func changeBrushSize(_ sender: Any) {
+        if widthSlider.isHidden == false{
+            colorStackView.isHidden = true
+            UIView.animate(withDuration: 0.1){
+                self.widthSlider.isHidden = true
+            }
+        } else {
+            colorStackView.isHidden = true
+            UIView.animate(withDuration: 0.1){
+                self.widthSlider.isHidden = false
+            }
+        }
     }
     @IBAction func takePicture(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -57,7 +104,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
                 detailField.isHidden = true
                 photoPicked.isHidden = true
                 drawView.isHidden = false
-                widthSlider.isHidden = false
+                brushOptions.isHidden = false
             }else{
                 detailField.isHidden = true
                 photoPicked.isHidden = false
@@ -67,12 +114,47 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
             break
         }
     }
+    
+    @IBAction func undoPressed(_ sender: Any) {
+        drawView.undo()
+    }
+    
+    @IBAction func redoPressed(_ sender: Any) {
+        drawView.redo()
+    }
+    
+    
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
-    var item: Item!
+    @IBAction func blackPressed(_ sender: Any) {
+        drawView.changeColor(color: UIColor.black)
+        colorStackView.isHidden = true
+    }
 
+    @IBAction func yellowPressed(_ sender: Any) {
+        drawView.changeColor(color: UIColor.yellow)
+        colorStackView.isHidden = true
+    }
+    @IBAction func orangePressed(_ sender: Any) {
+        drawView.changeColor(color: UIColor.orange)
+        colorStackView.isHidden = true
+    }
+    @IBAction func greenPressed(_ sender: Any) {
+        drawView.changeColor(color: UIColor.green)
+        colorStackView.isHidden = true
+    }
+    @IBAction func bluePressed(_ sender: Any) {
+        drawView.changeColor(color: UIColor.blue)
+        colorStackView.isHidden = true
+    }
+    @IBAction func redPressed(_ sender: Any) {
+        drawView.changeColor(color: UIColor.red)
+        colorStackView.isHidden = true
+    }
+    
+    
     @IBAction func cancelAddViewController(_ segue: UIStoryboardSegue) {
         self.performSegue(withIdentifier: "cancelAddViewController", sender: self)
         self.dismiss(animated: true, completion: nil)
@@ -86,6 +168,15 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButtonStyle(button: redButton, color: UIColor.red)
+        setupButtonStyle(button: blackButton, color: UIColor.black)
+        setupButtonStyle(button: blueButton, color: UIColor.blue)
+        setupButtonStyle(button: greenButton, color: UIColor.green)
+        setupButtonStyle(button: orangeButton, color: UIColor.orange)
+        setupButtonStyle(button: yellowButton, color: UIColor.yellow)
+        widthSlider.isHidden = true
+        colorStackView.isHidden = true
+        brushOptions.isHidden = true
         drawView.isHidden = true
         widthSlider.isHidden = true
         photoPicked.isHidden = true
@@ -138,6 +229,13 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
             userDefaults.set(data, forKey: item.uuid)
             userDefaults.synchronize()
         }
+    }
+    
+    func setupButtonStyle(button : UIButton, color: UIColor){
+        // Customizing Menu Button Style
+//        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.clipsToBounds = true
+        button.backgroundColor = color
     }
     
 }
