@@ -44,13 +44,17 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
             widthSlider.isHidden = true
             UIView.animate(withDuration: 0.3){
                 self.colorStackView.isHidden = true
+
             }
+            self.drawView.setNeedsDisplay()
             
         } else {
             widthSlider.isHidden = true
             UIView.animate(withDuration: 0.3){
                 self.colorStackView.isHidden = false
+
             }
+            self.drawView.setNeedsDisplay()
         }
     }
     
@@ -60,11 +64,13 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
             UIView.animate(withDuration: 0.1){
                 self.widthSlider.isHidden = true
             }
+            self.drawView.setNeedsDisplay()
         } else {
             colorStackView.isHidden = true
             UIView.animate(withDuration: 0.1){
                 self.widthSlider.isHidden = false
             }
+            self.drawView.setNeedsDisplay()
         }
     }
     @IBAction func takePicture(_ sender: Any) {
@@ -130,28 +136,58 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     
     @IBAction func blackPressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.black)
-        colorStackView.isHidden = true
+        UIView.animate(withDuration: 0.3){
+            self.colorStackView.isHidden = true
+            
+        }
+        self.drawView.setNeedsDisplay()
+
     }
 
     @IBAction func yellowPressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.yellow)
-        colorStackView.isHidden = true
+        UIView.animate(withDuration: 0.3){
+            self.colorStackView.isHidden = true
+            
+        }
+        self.drawView.setNeedsDisplay()
+
     }
     @IBAction func orangePressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.orange)
-        colorStackView.isHidden = true
+        UIView.animate(withDuration: 0.3){
+            self.colorStackView.isHidden = true
+            
+        }
+        self.drawView.setNeedsDisplay()
+
     }
     @IBAction func greenPressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.green)
-        colorStackView.isHidden = true
+        UIView.animate(withDuration: 0.3){
+            self.colorStackView.isHidden = true
+            
+        }
+        self.drawView.setNeedsDisplay()
+
     }
     @IBAction func bluePressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.blue)
-        colorStackView.isHidden = true
+        UIView.animate(withDuration: 0.3){
+            self.colorStackView.isHidden = true
+            
+        }
+        self.drawView.setNeedsDisplay()
+
     }
     @IBAction func redPressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.red)
-        colorStackView.isHidden = true
+        UIView.animate(withDuration: 0.3){
+            self.colorStackView.isHidden = true
+            
+        }
+        self.drawView.setNeedsDisplay()
+
     }
     
     
@@ -233,7 +269,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
     
     func setupButtonStyle(button : UIButton, color: UIColor){
         // Customizing Menu Button Style
-//        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.layer.cornerRadius = 0.6 * button.bounds.size.width
         button.clipsToBounds = true
         button.backgroundColor = color
     }
