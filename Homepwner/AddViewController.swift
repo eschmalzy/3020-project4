@@ -138,56 +138,50 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
         drawView.changeColor(color: UIColor.black)
         UIView.animate(withDuration: 0.3){
             self.colorStackView.isHidden = true
-            
         }
         self.drawView.setNeedsDisplay()
-
     }
 
     @IBAction func yellowPressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.yellow)
         UIView.animate(withDuration: 0.3){
             self.colorStackView.isHidden = true
-            
         }
         self.drawView.setNeedsDisplay()
-
     }
+    
     @IBAction func orangePressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.orange)
         UIView.animate(withDuration: 0.3){
             self.colorStackView.isHidden = true
-            
         }
         self.drawView.setNeedsDisplay()
-
     }
+    
     @IBAction func greenPressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.green)
         UIView.animate(withDuration: 0.3){
             self.colorStackView.isHidden = true
-            
         }
         self.drawView.setNeedsDisplay()
 
     }
+    
     @IBAction func bluePressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.blue)
         UIView.animate(withDuration: 0.3){
             self.colorStackView.isHidden = true
-            
         }
         self.drawView.setNeedsDisplay()
 
     }
+    
     @IBAction func redPressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.red)
         UIView.animate(withDuration: 0.3){
             self.colorStackView.isHidden = true
-            
         }
         self.drawView.setNeedsDisplay()
-
     }
     
     
