@@ -12,7 +12,6 @@
 		AA2FBB501F9D299B00AB1364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2FBB401F9D299B00AB1364 /* Assets.xcassets */; };
 		AA2FBB511F9D299B00AB1364 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = AA2FBB411F9D299B00AB1364 /* Base.lproj */; };
 		AA2FBB541F9D299B00AB1364 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB451F9D299B00AB1364 /* DetailViewController.swift */; };
-		AA2FBB551F9D299B00AB1364 /* DrawableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB461F9D299B00AB1364 /* DrawableView.swift */; };
 		AA2FBB571F9D299B00AB1364 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA2FBB481F9D299B00AB1364 /* Info.plist */; };
 		AA2FBB581F9D299B00AB1364 /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB491F9D299B00AB1364 /* item.swift */; };
 		AA2FBB591F9D299B00AB1364 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FBB4A1F9D299B00AB1364 /* ItemStore.swift */; };
@@ -29,7 +28,6 @@
 		AA2FBB401F9D299B00AB1364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Homepwner/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		AA2FBB411F9D299B00AB1364 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = Homepwner/Base.lproj; sourceTree = SOURCE_ROOT; };
 		AA2FBB451F9D299B00AB1364 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Homepwner/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
-		AA2FBB461F9D299B00AB1364 /* DrawableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawableView.swift; path = Homepwner/DrawableView.swift; sourceTree = SOURCE_ROOT; };
 		AA2FBB481F9D299B00AB1364 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Homepwner/Info.plist; sourceTree = SOURCE_ROOT; };
 		AA2FBB491F9D299B00AB1364 /* item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = item.swift; path = Homepwner/item.swift; sourceTree = SOURCE_ROOT; };
 		AA2FBB4A1F9D299B00AB1364 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemStore.swift; path = Homepwner/ItemStore.swift; sourceTree = SOURCE_ROOT; };
@@ -80,7 +78,6 @@
 				AA2FBB451F9D299B00AB1364 /* DetailViewController.swift */,
 				AA2FBB3E1F9D299B00AB1364 /* AddViewController.swift */,
 				AA2FBB4B1F9D299B00AB1364 /* ItemsViewController.swift */,
-				AA2FBB461F9D299B00AB1364 /* DrawableView.swift */,
 				AA2FBB481F9D299B00AB1364 /* Info.plist */,
 				AA2FBB491F9D299B00AB1364 /* item.swift */,
 				AA2FBB4A1F9D299B00AB1364 /* ItemStore.swift */,
@@ -167,7 +164,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA2FBB551F9D299B00AB1364 /* DrawableView.swift in Sources */,
 				AA2FBB541F9D299B00AB1364 /* DetailViewController.swift in Sources */,
 				AA2FBB581F9D299B00AB1364 /* item.swift in Sources */,
 				AA2FBB591F9D299B00AB1364 /* ItemStore.swift in Sources */,
