@@ -150,6 +150,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate, UIIma
         self.drawView.setNeedsDisplay()
     }
     
+    
+    
     @IBAction func orangePressed(_ sender: Any) {
         drawView.changeColor(color: UIColor.orange)
         UIView.animate(withDuration: 0.3){

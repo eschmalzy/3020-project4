@@ -15,7 +15,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, MFMessageComp
     
     @IBOutlet weak var sendButton: UIBarButtonItem!
     @IBOutlet weak var photoSaved: UIImageView!
-    @IBOutlet weak var drawView: DrawableView!
+    @IBOutlet weak var drawView: DrawingView!
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
